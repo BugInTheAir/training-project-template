@@ -15,6 +15,16 @@ body {
   animation: 1s ease-in-out 0ms 1 fadein;
   will-change: color background;
 }
+@media only screen and (min-width: 576px) and (max-width: 767px), only screen and (min-width: 1201px) {
+  .main__container {
+    background: black;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .main__container {
+    background: cyan;
+  }
+}
 
 .main__container-dark {
   background-color: #2d3436;

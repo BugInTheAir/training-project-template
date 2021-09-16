@@ -11,16 +11,39 @@ $detail-button-margin: 5rem;
     margin: 0;
     padding: 0;
 }
+//////////////////////// Media query section
+$size__site_content_width : 1200px;
+$_content_width_plus_one: $size__site_content_width + 1;
+$media_queries : (
+    'mobile'    : unquote("only screen and (min-width: 576px) and (max-width: 767px)"),
+    'tablet'    : unquote("screen and (min-width: 768px) and (max-width: 1200px)"),
+    'desktop'   : unquote("only screen and (min-width: 1201px)"),
+    'landscape' : unquote("screen and (orientation:landscape)"),    
+    'portrait'  : unquote("screen and (orientation:portrait)")
+);
+@mixin for_breakpoint($breakpoints) {
+    $conditions : ();
+    @each $breakpoint in $breakpoints {
+        // If the key exists in the map
+        $conditions: append(
+            $conditions,
+            #{inspect(map-get($media_queries, $breakpoint))},
+            comma
+        );
+    }
+    @media #{$conditions} {
+        @content;
+    }
 
-
-
-
+}
+/////////////////////// End media query
 
 ////////////// Body //////////////
 body{
     font-family: $default-font;
-    @include reset-mp()
+    @include reset-mp();
 }
+
 .main__container{
     width: 100vw;
     height: 100vh;
@@ -31,6 +54,13 @@ body{
     transition: background-color 500ms linear;
     animation: 1s ease-in-out 0ms 1 fadein;
     will-change: color background;
+   
+    @include for_breakpoint(mobile desktop){
+        background: black;
+    };
+    @include for_breakpoint(desktop){
+        background: cyan;
+    }
 }
 
 
@@ -48,7 +78,7 @@ body{
     box-shadow: 0 0 2rem #0000ff1a;
     flex-flow: row nowrap;
 }
- 
+
 .navbar__btn{
     margin: $button-margin;
     position: relative;
