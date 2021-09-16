@@ -140,7 +140,12 @@ body{
     display: flex;
     width: 100%;
     height: calc(100% - 4rem);
-    display: flex;
+    @include for_breakpoint(mobile){
+        display: none;
+    }
+    @include for_breakpoint(tablet){
+        display: none;
+    }
     flex-flow: column nowrap;
 }
 .detail__header{
@@ -211,4 +216,74 @@ body{
 .file__name:hover{
     cursor: pointer;
     opacity: 0.5;
+}
+
+.mini__detail__container{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: none;
+    @include for_breakpoint(mobile){
+        @include flex__column()
+    }
+    @include for_breakpoint(tablet){
+        @include flex__column()
+    }
+    .mini__detail__card{
+        background-color: white;
+        box-shadow: 0 0 2rem #0000ff1a;
+        width: calc(100% - 8rem);
+        height: auto;
+        margin: {
+            bottom: 0.5rem;
+            top: 1rem;
+            left: 4rem;
+            right: 4rem;
+        };
+        display: flex;
+        flex-flow: row wrap;
+        font-size: 1rem;
+        .mini__detail__card__header{
+            height: 2rem;
+            background: $gray;
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            .mini__detail__card__front{
+                width: auto;
+                justify-content: flex-start;
+                display: flex;
+                align-items: center;
+                margin-left: 0.5rem;
+            }
+            .mini__detail__card__end{
+                display: flex;
+                justify-content: flex-end;
+                flex-grow: 1;
+                align-items: center;
+                margin-right: 0.5rem;
+            }
+        }
+        .mini__detail__card__content{
+            height: 3rem;
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            border-bottom: 2px solid $gray;
+            .mini__detail__card__content__front{
+                display: flex;
+                width: 15rem;
+                justify-content: flex-start;
+                align-items: center;
+                margin-left: 0.5rem;
+            }
+            .mini__detail__card__content__middle{
+                display: flex;
+                width: auto;
+                justify-content: flex-start;
+                align-items: center;
+                flex-grow: 1;
+            }
+        }
+    }
 }

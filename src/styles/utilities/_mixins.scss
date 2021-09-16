@@ -18,3 +18,11 @@
     margin: 0;
     padding: 0;
 }
+@mixin flex__column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+@mixin flex__row{
+    display: flex;
+    flex-flow: row nowrap;
+}

@@ -146,8 +146,17 @@ body {
   display: flex;
   width: 100%;
   height: calc(100% - 4rem);
-  display: flex;
   flex-flow: column nowrap;
+}
+@media only screen and (min-width: 576px) and (max-device-width: 768px) {
+  .detail__container {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-device-width: 1200px) {
+  .detail__container {
+    display: none;
+  }
 }
 
 .detail__header {
@@ -221,6 +230,80 @@ body {
 .file__name:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.mini__detail__container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: none;
+}
+@media only screen and (min-width: 576px) and (max-device-width: 768px) {
+  .mini__detail__container {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+@media only screen and (min-width: 768px) and (max-device-width: 1200px) {
+  .mini__detail__container {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+.mini__detail__container .mini__detail__card {
+  background-color: white;
+  box-shadow: 0 0 2rem #0000ff1a;
+  width: calc(100% - 8rem);
+  height: auto;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1rem;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__header {
+  height: 2rem;
+  background: #dfe4ea;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__header .mini__detail__card__front {
+  width: auto;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__header .mini__detail__card__end {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__content {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 2px solid #dfe4ea;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__content .mini__detail__card__content__front {
+  display: flex;
+  width: 15rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.mini__detail__container .mini__detail__card .mini__detail__card__content .mini__detail__card__content__middle {
+  display: flex;
+  width: auto;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
 }
 
 /*# sourceMappingURL=home-page.css.map*/
