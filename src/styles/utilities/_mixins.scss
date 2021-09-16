@@ -12,5 +12,9 @@
     @media #{$conditions} {
         @content;
     }
+}
 
+@mixin reset-mp {
+    margin: 0;
+    padding: 0;
 }
