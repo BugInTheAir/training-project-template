@@ -1,11 +1,6 @@
 // Home page styles
 @import "master-page";
-$default-font: Georgia, 'Times New Roman', Times, serif;
 
-@mixin reset-mp {
-    margin: 0;
-    padding: 0;
-}
 ////////////// Body //////////////
 body{
     font-family: $default-font;
@@ -167,12 +162,13 @@ body{
     margin: 0 $marginLeftContainer 0 $marginLeftContainer;
     height: 3rem;
     display: flex;
+    .detail__content{
+        width: calc(100% - $marginLeftContainer - $marginLeftContainer);
+        height: 100%;
+        //overflow-y: scroll;
+    }
 }
-.detail__content{
-    width: calc(100% - $marginLeftContainer - $marginLeftContainer);
-    height: 100%;
-    //overflow-y: scroll;
-}
+
 
 .detail__btn__placeholder{
     flex-basis: 5%;
