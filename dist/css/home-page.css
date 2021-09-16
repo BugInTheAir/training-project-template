@@ -172,8 +172,7 @@ body {
   height: 3rem;
   display: flex;
 }
-
-.detail__content {
+.detail__row .detail__content {
   width: calc(100% - $marginLeftContainer - $marginLeftContainer);
   height: 100%;
 }
