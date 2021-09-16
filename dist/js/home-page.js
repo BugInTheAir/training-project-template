@@ -101,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const aFewSecond = 'A few seconds ago';
 const admin = 'Administrator MOD';
+let toggleBurger = false;
 const initialData = [{
   icon: 'ms-Icon--FabricFolderFill',
   name: 'CAS',
@@ -127,9 +128,33 @@ const initialData = [{
   modified: aFewSecond,
   modifedBy: admin
 }];
+
+function toggleBurgerContainer(isToggled) {
+  const element = document.getElementById('mini_navbar__container');
+
+  if (element) {
+    if (!isToggled) {
+      toggleBurger = !isToggled;
+      element.style.transform = 'none';
+    } else {
+      toggleBurger = !isToggled;
+      element.style.transform = 'translateY(-103%)';
+    }
+  }
+}
+
+function initBurgerBtnEvent() {
+  toggleBurgerContainer(toggleBurger);
+}
+
 Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
   // renderGrid();
   Object(_utilities_init_data__WEBPACK_IMPORTED_MODULE_1__["default"])(initialData);
+  const ele = document.getElementById('burger__btn');
+
+  if (ele) {
+    ele.addEventListener('click', initBurgerBtnEvent);
+  }
 });
 
 /***/ }),

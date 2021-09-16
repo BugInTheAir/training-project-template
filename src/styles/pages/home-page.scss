@@ -1,43 +1,11 @@
 // Home page styles
 @import "master-page";
-
-$darkModeBackground: linear-gradient(to bottom, #2d3436, #636e72);
 $default-font: Georgia, 'Times New Roman', Times, serif;
-$gray : #dfe4ea;
-$button-margin: 0.5rem;
-$marginLeftContainer: 5rem;
-$detail-button-margin: 5rem;
+
 @mixin reset-mp {
     margin: 0;
     padding: 0;
 }
-//////////////////////// Media query section
-$size__site_content_width : 1200px;
-$_content_width_plus_one: $size__site_content_width + 1;
-$media_queries : (
-    'mobile'    : unquote("only screen and (min-width: 576px) and (max-width: 767px)"),
-    'tablet'    : unquote("screen and (min-width: 768px) and (max-width: 1200px)"),
-    'desktop'   : unquote("only screen and (min-width: 1201px)"),
-    'landscape' : unquote("screen and (orientation:landscape)"),    
-    'portrait'  : unquote("screen and (orientation:portrait)")
-);
-@mixin for_breakpoint($breakpoints) {
-    $conditions : ();
-    @each $breakpoint in $breakpoints {
-        // If the key exists in the map
-        $conditions: append(
-            $conditions,
-            #{inspect(map-get($media_queries, $breakpoint))},
-            comma
-        );
-    }
-    @media #{$conditions} {
-        @content;
-    }
-
-}
-/////////////////////// End media query
-
 ////////////// Body //////////////
 body{
     font-family: $default-font;
@@ -54,21 +22,15 @@ body{
     transition: background-color 500ms linear;
     animation: 1s ease-in-out 0ms 1 fadein;
     will-change: color background;
-   
-    @include for_breakpoint(mobile desktop){
-        background: black;
-    };
-    @include for_breakpoint(desktop){
-        background: cyan;
-    }
 }
 
-
-/////// Navbar /////////
 .main__container-dark{
     background-color: #2d3436;
     color:white;
 }
+
+/////// Navbar /////////
+
 .navbar__container{
     position: relative;
     width: 100%;
@@ -77,6 +39,7 @@ body{
     display: flex;
     box-shadow: 0 0 2rem #0000ff1a;
     flex-flow: row nowrap;
+    z-index: 4;
 }
 
 .navbar__btn{
@@ -110,13 +73,71 @@ body{
 .front__container{
     display: flex;
     align-content: flex-start;
+    @include for_breakpoint(mobile){
+        visibility: hidden;
+    }
+    @include for_breakpoint(tablet){
+        visibility: hidden;
+    }
+    @include for_breakpoint(desktop){
+        visibility: visible;
+    }
+    will-change: visibility;
 }
 .back__container{
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: flex-end;
+    flex-grow: 1;
+    @include for_breakpoint(desktop){
+        visibility: hidden;
+    }
+    @include for_breakpoint(mobile){
+        visibility: visible;
+    }
+    @include for_breakpoint(tablet){
+        visibility: visible;
+    }
+    will-change: visibility;
 }
-
+.mini__navbar__container{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 3;
+    background: white;
+    transform: translateY(-103%);
+    transition: transform 300ms linear;
+    will-change: transform;
+}
+.mini__navbar__container-active{
+    transform: none;
+}
+.mini__navbar__btn{
+    background-color: $gray;
+    padding-left: 2rem;
+    font-size: 1.75rem;
+    span{
+        margin: {
+            left: 0.2rem;
+            right: 0.2rem;
+        };
+    }
+    margin: {
+        bottom: 0.5rem
+    };
+}
+.mini__navbar__btn:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+#burger__btn:hover{
+    cursor: pointer;
+    opacity: 0.4;
+}
 
 ///// End Navbar ///////
 .detail__container{

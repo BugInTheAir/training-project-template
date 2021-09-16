@@ -4,7 +4,7 @@ import initData from '../utilities/_init-data';
 
 const aFewSecond = 'A few seconds ago';
 const admin = 'Administrator MOD';
-
+let toggleBurger = false;
 const initialData: IDocument[] = [
   {
     icon: 'ms-Icon--FabricFolderFill',
@@ -38,7 +38,28 @@ const initialData: IDocument[] = [
   },
 ];
 
+function toggleBurgerContainer(isToggled: boolean) {
+  const element = document.getElementById('mini_navbar__container');
+  if (element) {
+    if (!isToggled) {
+      toggleBurger = !isToggled;
+      element.style.transform = 'none';
+    } else {
+      toggleBurger = !isToggled;
+      element.style.transform = 'translateY(-103%)';
+    }
+  }
+}
+
+function initBurgerBtnEvent() {
+  toggleBurgerContainer(toggleBurger);
+}
+
 ready(() => {
   // renderGrid();
   initData(initialData);
+  const ele = document.getElementById('burger__btn');
+  if (ele) {
+    ele.addEventListener('click', initBurgerBtnEvent);
+  }
 });

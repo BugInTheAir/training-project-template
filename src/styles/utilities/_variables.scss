@@ -1,1 +1,13 @@
 // Define variables
+$media_queries : (
+    'mobile'    : unquote("only screen and (min-width: 576px) and (max-device-width: 768px)"),
+    'tablet'    : unquote("only screen and (min-width: 768px) and (max-device-width: 1200px)"),
+    'desktop'   : unquote("only screen and (min-width: 1200px)"),
+    'landscape' : unquote("screen and (orientation:landscape)"),    
+    'portrait'  : unquote("screen and (orientation:portrait)")
+);
+$button-margin: 0.5rem;
+$marginLeftContainer: 5rem;
+$detail-button-margin: 5rem;
+$gray : #dfe4ea;
+$darkModeBackground: linear-gradient(to bottom, #2d3436, #636e72);
