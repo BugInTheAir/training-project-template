@@ -26,3 +26,29 @@
     display: flex;
     flex-flow: row nowrap;
 }
+
+@mixin retinize($file, $type, $width, $height) {
+    background-image: url('../img/' + $file + '.'
+    + $type);
+    @media (-webkit-min-device-pixel-ratio: 1.5),
+    (min--moz-device-pixel-ratio: 1.5),
+    (-o-min-device-pixel-ratio: 3/2),
+    (min-device-pixel-ratio: 1.5),
+    (min-resolution: 1.5dppx) {
+    & {
+    background-image: url('../img/' + $file + '-2x.'
+    + $type);
+    -webkit-background-size: $width $height;
+    -moz-background-size: $width $height;
+    background-size: $width $height;
+    }
+ }
+}
+
+@mixin rest-col-basis {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color:gray;
+}

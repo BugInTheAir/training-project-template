@@ -12,3 +12,8 @@
 @import '../layout/forms';
 
 @import '../components/buttons';
+
+body{
+    font-family: $default-font;
+    @include reset-mp();
+}
